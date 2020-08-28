@@ -1,0 +1,14 @@
+version: '3'
+
+# File is for ci testing
+services:
+  express-backend:
+    image: billchee1997/express-backend:0.1.0
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./test:/usr/src/app/test
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    container_name: express-backend

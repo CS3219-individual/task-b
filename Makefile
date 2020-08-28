@@ -3,5 +3,5 @@ dev:
 	@docker-compose up
 
 dev-test:
-	@docker-compose -f docker-compose.test.yml build
-	@docker-compose -f docker-compose.test.yml up
+	@docker-compose -f docker-compose.ci_test.yml build
+	@docker-compose -f docker-compose.ci_test.yml up
