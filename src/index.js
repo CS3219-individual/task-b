@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 let host_options = {
      "DEVELOPMENT": "mongo_db",
-     "TESTING": "localhost",
+     "TESTING": "localhost:27017",
 }
 
 let mongo_host = host_options[process.env.ENVIRONMENT]
