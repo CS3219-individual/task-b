@@ -9,8 +9,8 @@ services:
       - ./src:/usr/src/app/src
       - ./test:/usr/src/app/test
     command: >
-        bash -c "
-        ./wait-for-it.sh mongo_db:27017 && npm run dev"
+      bash -c "
+      ./wait-for-it.sh mongo_db:27017 && npm run dev"
     build:
       context: .
     env_file:
