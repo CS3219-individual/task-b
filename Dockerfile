@@ -19,8 +19,8 @@ RUN npm install
 FROM build-image as runtime-image
 
 # Should match docker volume
-COPY src ./src
-COPY test ./test
+# COPY src ./src
+# COPY test ./test
 
 EXPOSE 8080
 
