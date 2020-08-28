@@ -3,8 +3,6 @@ services:
   mongo_db:
     image: mongo:latest
     container_name: mongo_db
-    ports:
-      - "27017:27017"
   express-backend:
     image: billchee1997/express-backend:0.1.0
     volumes:
