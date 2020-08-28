@@ -15,5 +15,4 @@ services:
     ports:
       - "8080:8080"
     container_name: express-backend
-    network_mode:
-      - "host"
+    network_mode: "host"
