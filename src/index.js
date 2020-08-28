@@ -24,7 +24,6 @@ let host_options = {
 
 let mongo_host = host_options[process.env.ENVIRONMENT]
 
-
 // Connect to Mongoose and set connection variable
 const MONGO_URI = `mongodb://${mongo_host}/resthub`;
 
