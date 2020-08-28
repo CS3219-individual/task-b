@@ -10,4 +10,8 @@ before_install:
   - docker-compose -f docker-compose.ci_test.yml build
 
 script:
+  - npm install
+  - npm run postinstall
+
+after_script:
   - bash -c "./wait-for-it.sh localhost:27017 && npm test"
