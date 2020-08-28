@@ -1,0 +1,20 @@
+version: '3'
+services:
+  mongo_db:
+    image: mongo:latest
+    container_name: mongo_db
+  express-backend:
+    image: billchee1997/express-backend:0.1.0
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./test:/usr/src/app/test
+    command: >
+      bash -c "
+      ./wait-for-it.sh mongo_db:27017 && npm run dev"
+    build:
+      context: .
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    container_name: express-backend

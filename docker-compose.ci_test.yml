@@ -1,10 +1,7 @@
 version: '3'
+
+# File is for ci testing
 services:
-  mongo_db:
-    image: mongo:latest
-    container_name: mongo_db
-    ports:
-      - "27017:27017"
   express-backend:
     image: billchee1997/express-backend:0.1.0
     volumes:
@@ -12,11 +9,12 @@ services:
       - ./test:/usr/src/app/test
     command: >
         bash -c "
-        ./wait-for-it.sh mongo_db:27017 && npm run dev"
+        ./wait-for-it.sh localhost:27017 && npm test"
     build:
       context: .
-    env_file:
-      - .env
+    environment: 
+      - ENVIRONMENT=TESTING
     ports:
       - "8080:8080"
     container_name: express-backend
+    network_mode: "host"

@@ -43,9 +43,9 @@ describe("Students", () => {
 
           // We can also do this
           assert.deepEqual(res.body, expected)
-
           done();
         });
+
     });
 
     // // Test to get single student record
@@ -108,10 +108,10 @@ describe("Students", () => {
               var expected_copy = expected
               expected_copy.message = "Contact details loading.."
               assert.deepEqual(res.body, expected)
+              done();
             })
         });
 
-      done();
     });
   });
 
@@ -165,6 +165,7 @@ describe("Students", () => {
                 expected_copy.message = "Contact details loading.."
                 assert.deepEqual(res.body, expected)
               })
+            done();
           });
 
       }
@@ -174,7 +175,6 @@ describe("Students", () => {
         .send(post_data)
         .then(chain_put)
 
-      done();
     });
   });
 
@@ -210,6 +210,7 @@ describe("Students", () => {
                 }
                 assert.deepEqual(res.body, expected)
               })
+            done();
 
           });
 
@@ -220,7 +221,6 @@ describe("Students", () => {
         .send(post_data)
         .then(chain_delete)
 
-      done();
     });
   });
 

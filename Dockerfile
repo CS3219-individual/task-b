@@ -19,10 +19,10 @@ RUN npm install
 FROM build-image as runtime-image
 
 # Should match docker volume
-COPY src ./src
-COPY test ./test
+# COPY src ./src
+# COPY test ./test
 
 EXPOSE 8080
 
 # Default command to run without docker-compose.yml
-# CMD [ "npm", "run", "dev" ]
+CMD [ "npm", "test" ]

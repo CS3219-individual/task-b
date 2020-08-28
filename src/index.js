@@ -17,8 +17,17 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+let host_options = {
+     "DEVELOPMENT": "mongo_db",
+     "TESTING": "localhost:27017",
+}
+
+let mongo_host = host_options[process.env.ENVIRONMENT]
+
 // Connect to Mongoose and set connection variable
-const MONGO_URI = 'mongodb://mongo_db/resthub';
+const MONGO_URI = `mongodb://${mongo_host}/resthub`;
+
+console.log(`MONGO_URI is ${MONGO_URI}`);
 
 mongoose
      .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 5000 })

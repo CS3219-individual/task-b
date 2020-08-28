@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "test": "mocha"
+    "test": "mocha --exit"
   },
   "author": "Bill Chee",
   "license": "ISC",
@@ -14,8 +14,10 @@
     "chai-http": "^4.3.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.10.0",
-    "nodemon": "^2.0.4"
+    "mongoose": "^5.10.1",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.4",
+    "shrinkwrap": "^0.4.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
