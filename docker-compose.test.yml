@@ -1,4 +1,6 @@
 version: '3'
+
+# File is for local testing
 services:
   mongo_db:
     image: mongo:latest
@@ -13,10 +15,10 @@ services:
     command: >
         bash -c "
         ./wait-for-it.sh mongo_db:27017 && npm test"
+    env_file:
+      - .env
     build:
       context: .
-    environment:
-      - ENVIRONMENT=DEVELOPMENT
     ports:
       - "8080:8080"
     container_name: express-backend
