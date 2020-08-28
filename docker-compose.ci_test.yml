@@ -7,6 +7,9 @@ services:
     volumes:
       - ./src:/usr/src/app/src
       - ./test:/usr/src/app/test
+    command: >
+        bash -c "
+        ./wait-for-it.sh localhost:27017 && npm test"
     build:
       context: .
     ports:

@@ -1,5 +1,6 @@
 language: node_js
   - "node"
+
 services:
   - docker
   - mongodb
@@ -11,4 +12,4 @@ before_install:
   - docker-compose -f docker-compose.ci_test.yml build
 
 script:
-  - bash -c "./wait-for-it.sh localhost:27017 && npm test"
+  - docker-compose -f docker-compose.ci_test.yml up
