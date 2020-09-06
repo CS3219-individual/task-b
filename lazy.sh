@@ -1,5 +1,5 @@
 #!/bin/bash
 
 git add .
-git commit -m "Update travis"
+git commit -m "Make some changes"
 git push
