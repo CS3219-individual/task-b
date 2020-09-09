@@ -13,8 +13,9 @@ services:
     command: >
         bash -c "
         ./wait-for-it.sh mongo_db:27017 && npm test"
-    env_file:
-      - .env
+    environment: 
+      - ENVIRONMENT=DEVELOPMENT
+      - MONGO_URI=mongodb://mongo_db/resthub
     build:
       context: .
     ports:

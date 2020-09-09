@@ -17,15 +17,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-let host_options = {
-     "DEVELOPMENT": "mongo_db",
-     "TESTING": "localhost:27017",
-}
-
-let mongo_host = host_options[process.env.ENVIRONMENT]
-
 // Connect to Mongoose and set connection variable
-const MONGO_URI = `mongodb://${mongo_host}/resthub`;
+const MONGO_URI = process.env.MONGO_URI;
 
 console.log(`MONGO_URI is ${MONGO_URI}`);
 
@@ -44,9 +37,6 @@ if (process.env.ENVIRONMENT == "DEVELOPMENT") {
      );
 }
 
-// Setup server port
-var port = process.env.PORT || 8080;
-
 // Send message for default URL
 app.get('/', (req, res) => res.send('Hello World with Express'));
 
@@ -57,8 +47,8 @@ app.use('/api', apiRoutes);
 // app.listen(port, function () {
 //      console.log(`Running RestHub on port ${port}`);
 // });
-// module.exports = app 
+module.exports = app 
 
-const serverless = require('serverless-http');
+// const serverless = require('serverless-http');
 
-module.exports.handler = serverless(app);
+// module.exports.handler = serverless(app);

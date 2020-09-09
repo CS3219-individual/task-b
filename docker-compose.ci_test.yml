@@ -14,6 +14,7 @@ services:
       context: .
     environment: 
       - ENVIRONMENT=TESTING
+      - MONGO_URI=mongodb://localhost:27017/resthub
     ports:
       - "8080:8080"
     container_name: express-backend

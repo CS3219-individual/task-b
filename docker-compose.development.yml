@@ -13,8 +13,9 @@ services:
       ./wait-for-it.sh mongo_db:27017 && npm run dev"
     build:
       context: .
-    env_file:
-      - .env
+    environment: 
+      - ENVIRONMENT=PRODUCTION
+      - MONGO_URI=mongodb://mongo_db/resthub
     ports:
       - "8080:8080"
     container_name: express-backend

@@ -23,7 +23,7 @@ describe('Chai Demo', function () {
   })
 })
 
-describe("Students", () => {
+describe("Contacts", () => {
   describe("GET /", () => {
     it("should get all contacts", (done) => {
       chai.request(app)
