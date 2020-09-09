@@ -10,6 +10,7 @@ deploy:
   provider: lambda
   function_name: travis-lambda-function
   region: ap-southeast-1
+  role: "arn:aws:iam::0123456789012:role/lambda_basic_execution"
   runtime: nodejs12.x
   handler_name: src/lambda.handler
   access_key_id: ${AWS_ACCESS_KEY_ID}
