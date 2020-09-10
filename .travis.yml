@@ -6,7 +6,8 @@ before_install:
 - docker-compose -f docker-compose.ci_test.yml build
 script:
 - docker-compose -f docker-compose.ci_test.yml up
-- sls deploy
+- npm install -g serverless
+- serverless deploy
 env:
   - MONGO_URI=${MONGO_URI}
 # deploy:
