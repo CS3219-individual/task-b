@@ -6,16 +6,19 @@ before_install:
 - docker-compose -f docker-compose.ci_test.yml build
 script:
 - docker-compose -f docker-compose.ci_test.yml up
-deploy:
-  provider: lambda
-  function_name: travis-lambda-function
-  region: ap-southeast-1
-  role: "arn:aws:iam::0123456789012:role/sample"
-  runtime: nodejs12.x
-  handler_name: src/lambda.handler
-  access_key_id: ${AWS_ACCESS_KEY_ID}
-  secret_access_key: ${AWS_SECRET_ACCESS_KEY}
-  on:
-    all_branches: true
-  environment:
-    - MONGO_URI=${MONGO_URI}
+- serverless deploy
+env:
+  - MONGO_URI=${MONGO_URI}
+# deploy:
+#   provider: lambda
+#   function_name: travis-lambda-function
+#   region: ap-southeast-1
+#   role: "arn:aws:iam::0123456789012:role/sample"
+#   runtime: nodejs12.x
+#   handler_name: src/lambda.handler
+#   access_key_id: ${AWS_ACCESS_KEY_ID}
+#   secret_access_key: ${AWS_SECRET_ACCESS_KEY}
+#   on:
+#     all_branches: true
+#   environment:
+#     - MONGO_URI=${MONGO_URI}
