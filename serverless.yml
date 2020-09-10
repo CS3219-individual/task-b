@@ -8,7 +8,7 @@ provider:
   stage: dev
   region: ap-southeast-1
   environment:
-    MONGO_URI: '${MONGO_URI}'
+    MONGO_URI: "mongodb+srv://ac3ofskyz:wmi123456@cs3219.dq8sd.mongodb.net/mydb?retryWrites=true&w=majority"
 
 functions:
   app:
