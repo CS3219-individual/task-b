@@ -60,14 +60,19 @@ exports.update = function (req, res) {
         contact.email = req.body.email;
         contact.phone = req.body.phone;
         // save the contact and check for errors
+
         contact.save(function (err) {
-            if (err)
-                res.json(err);
+            if (err) {
+                res.send(err);
+                return;
+            }
             res.json({
                 message: 'Contact Info updated',
                 data: contact
             });
         });
+
+
     });
 };
 // Handle delete contact
